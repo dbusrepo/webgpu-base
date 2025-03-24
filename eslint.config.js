@@ -32,6 +32,7 @@ export default [
       'vite.config.ts',
       'eslint.config.js',
       'src/vite-env.d.ts',
+      'commitlint.config.js',
       'src/engine/wasmEngine/wasm',
       'src/ui/guify',
       'src/engine/assets/images/vivaxy-png',

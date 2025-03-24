@@ -1,0 +1,38 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "pnpm",
+    "commitlint",
+    "brettz",
+    "sonarjs",
+    "guify",
+    "vivaxy",
+    "transferables",
+    "tweakpane",
+    "jqueryui",
+    "screenfull",
+    "codepaths",
+    "UFPS",
+    "ufps",
+    "MILLI",
+    "fullwin",
+    "perc",
+    "Perc",
+    "recentered",
+    "yorha",
+    "reinit",
+    "FULLWIN",
+    "removefrom",
+    "Webgpu"
+  ],
+  "flagWords": [],
+  "ignorePaths": [
+    "node_modules/",
+    "build/",
+    "coverage/",
+    ".husky",
+    "pnpm-lock.yaml",
+    "package.json"
+  ]
+}
