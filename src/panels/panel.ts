@@ -110,7 +110,7 @@ abstract class Panel {
   }
 
   private setPanelFullStyle(): void {
-    assert(
+    assert.ok(
       this.isFullScreen ||
         this.panelDiv.parentNode === this.panelContainerWinFull,
     );
@@ -199,7 +199,7 @@ abstract class Panel {
       this.enableFullScreenMode();
       await screenfull.request(this.panelContainer, { navigationUI: 'hide' });
     } else {
-      assert(screenfull.isFullscreen);
+      assert.ok(screenfull.isFullscreen);
       await screenfull.exit();
       this.resetModeAfterFullScreen();
     }
@@ -219,7 +219,7 @@ abstract class Panel {
   }
 
   private resetModeAfterFullScreen(): void {
-    assert(
+    assert.ok(
       this.viewMode === ViewMode.FULL_SCREEN &&
         (this.preViewMode === ViewMode.WIN ||
           this.preViewMode === ViewMode.FULL_WIN),
@@ -299,7 +299,7 @@ abstract class Panel {
   }
 
   private setCanvasFullStyle(): void {
-    assert(!this.isWinMode);
+    assert.ok(!this.isWinMode);
     // update canvas
     Panel.resetClassName(this.canvas);
     this.canvas.classList.add('canvas', 'canvas-full');
@@ -447,12 +447,12 @@ abstract class Panel {
     // console.log('inv');
     if (this.isEventLogVisible) {
       if (this.isEventLogBelowCanvas) {
-        assert(this.panelDiv.lastChild === this.eventLogBottomPanel);
+        assert.ok(this.panelDiv.lastChild === this.eventLogBottomPanel);
       } else {
-        assert(this.panelContainer.lastChild === this.eventLogBottomPanel);
+        assert.ok(this.panelContainer.lastChild === this.eventLogBottomPanel);
       }
     } else {
-      assert(this.panelContainer.lastChild === this.eventLogBottomPanel);
+      assert.ok(this.panelContainer.lastChild === this.eventLogBottomPanel);
     }
   }
 
@@ -466,13 +466,13 @@ abstract class Panel {
   }
 
   protected toWinStyle(): void {
-    assert(this.isWinMode);
+    assert.ok(this.isWinMode);
     if (!this.isPanelInsideParentContainer()) {
       this.appendPanelTo(this.panelContainer);
     }
     this.setWinStyle();
     this.resetGui();
-    assert(this.isPanelInsideParentContainer());
+    assert.ok(this.isPanelInsideParentContainer());
   }
 
   protected setWinStyle(): void {
@@ -512,15 +512,15 @@ abstract class Panel {
   }
 
   private toFullWinStyle(): void {
-    assert(this.isFullWin);
+    assert.ok(this.isFullWin);
     if (this.isInit() || this.preViewMode === ViewMode.WIN) {
-      assert(this.isInit() || this.isPanelInsideParentContainer());
+      assert.ok(this.isInit() || this.isPanelInsideParentContainer());
       this.appendPanelTo(this.panelContainerWinFull);
       this.setEventLogVisibility(this.isEventLogVisible);
       this.setFullStyle();
       this.resetGui();
     }
-    assert(this.panelDiv.parentNode === this.panelContainerWinFull);
+    assert.ok(this.panelDiv.parentNode === this.panelContainerWinFull);
   }
 
   private updateStatsParent(parent: HTMLDivElement): void {
@@ -546,7 +546,7 @@ abstract class Panel {
   }
 
   private setEventLogBottomPanelWinStyle(): void {
-    assert(this.eventLogBottomPanel);
+    assert.ok(this.eventLogBottomPanel);
     // assert(this.eventLog);
     Panel.resetClassName(this.eventLogBottomPanel);
     this.eventLogBottomPanel.classList.add(
@@ -561,7 +561,7 @@ abstract class Panel {
   }
 
   private setEventLogBottomPanelFullStyle(): void {
-    assert(this.eventLogBottomPanel);
+    assert.ok(this.eventLogBottomPanel);
     // assert(this.eventLog);
     Panel.resetClassName(this.eventLogBottomPanel);
     this.eventLogBottomPanel.classList.add(
@@ -576,7 +576,7 @@ abstract class Panel {
   // complementary states
 
   private moveEventLogBottomPanelInsidePanel(): void {
-    assert(this.eventLogBottomPanel);
+    assert.ok(this.eventLogBottomPanel);
     this.eventLogBottomPanel.remove();
     // pushed as last el
     this.panelDiv.append(this.eventLogBottomPanel);
@@ -592,7 +592,7 @@ abstract class Panel {
   }
 
   private moveOutEventLogBottomPanel(): void {
-    assert(this.eventLogBottomPanel);
+    assert.ok(this.eventLogBottomPanel);
     this.eventLogBottomPanel!.style.visibility = 'hidden';
     this.moveEventLogBottomPanelOutOfPanel();
     if (!this.isWinMode) {
@@ -602,7 +602,7 @@ abstract class Panel {
 
   // private hideEventsLogMainPanel(showOnBottomPanel: boolean): void {
   private moveOutEventLogMainPanel(): void {
-    assert(this.eventLogMainPanel);
+    assert.ok(this.eventLogMainPanel);
     // assert(!this.isEventLogOnBottomPanel);
     // this.isEventLogOnBottomPanel = showOnBottomPanel;
     // this._eventLogMainPanel.style.visibility = 'hidden';
@@ -613,9 +613,9 @@ abstract class Panel {
 
   private moveInEventLogBottomPanel(): void {
     // assert(this.eventLog);
-    assert(this.eventLogBottomPanel);
-    assert(this.isEventLogBelowCanvas);
-    assert(this.isEventLogVisible);
+    assert.ok(this.eventLogBottomPanel);
+    assert.ok(this.isEventLogBelowCanvas);
+    assert.ok(this.isEventLogVisible);
     this.moveEventLogBottomPanelInsidePanel();
     this.eventLogBottomPanel.style.visibility = 'visible';
     if (!this.isWinMode) {
@@ -628,9 +628,9 @@ abstract class Panel {
 
   private moveInEventLogMainPanel(): void {
     // assert(this.eventLog);
-    assert(this.eventLogMainPanel);
-    assert(!this.isEventLogBelowCanvas);
-    assert(this.isEventLogVisible);
+    assert.ok(this.eventLogMainPanel);
+    assert.ok(!this.isEventLogBelowCanvas);
+    assert.ok(this.isEventLogVisible);
     this.canvas.style.visibility = 'hidden';
     this.eventLogMainPanel.style.visibility = 'visible';
     this.canvasContainer.append(this.eventLogMainPanel);
@@ -666,7 +666,7 @@ abstract class Panel {
   }
 
   private updateEventLogBottomPanelHeightPercFullMode(): void {
-    assert(this.eventLogBottomPanel);
+    assert.ok(this.eventLogBottomPanel);
     this.eventLogBottomPanel.style.height = `${
       (1 - this.canvasDisplayHeightPercFull) * 100
     }%`;
@@ -702,7 +702,7 @@ abstract class Panel {
   }
 
   public setStatsVisible(visible: boolean): void {
-    assert(this.stats);
+    assert.ok(this.stats);
     this.isStatsVisible = visible;
     if (visible) {
       this.stats.show();

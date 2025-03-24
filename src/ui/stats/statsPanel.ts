@@ -53,7 +53,7 @@ class StatsPanel {
     this.canvas.style.display = 'inline-block';
 
     const context = this.canvas.getContext('2d');
-    assert(context);
+    assert.ok(context);
     this.context = context;
     this.context.font = `bold ${9 * PR}px Helvetica,Arial,sans-serif`;
     this.context.textBaseline = 'top';

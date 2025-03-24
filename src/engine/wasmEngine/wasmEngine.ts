@@ -47,7 +47,7 @@ class WasmEngine {
     const startOffset = this.wasmRegionsOffsets[MemRegionsEnum.START_MEM];
     const wasmMemStartTotalSize = startOffset + startSize;
     const { wasmMemStartPages: initial, wasmMemMaxPages: maximum } = mainConfig;
-    assert(initial * PAGE_SIZE_BYTES >= wasmMemStartTotalSize);
+    assert.ok(initial * PAGE_SIZE_BYTES >= wasmMemStartTotalSize);
     const memory = new WebAssembly.Memory({
       initial,
       maximum,

@@ -37,7 +37,7 @@ abstract class PanelGui {
   private static panelGuiList: PanelGui[] = [];
 
   init(panel: Panel): void {
-    assert(panel, 'panel is null or undefined');
+    assert.ok(panel, 'panel is null or undefined');
 
     if (!this.cfg) {
       this.cfg = {
@@ -185,7 +185,7 @@ abstract class PanelGui {
           break;
         }
         default: {
-          assert(false, 'unknown event log vis state');
+          assert.ok(false, 'unknown event log vis state');
         }
       }
     });

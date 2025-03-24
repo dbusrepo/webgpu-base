@@ -230,7 +230,7 @@ class ConsolePanel extends Component<ConsolePanelProps, ConsolePanelState> {
     });
   }
 
-  // toggleStyle(style: ConsoleStyle) { // TODO necesary ? remove?
+  // toggleStyle(style: ConsoleStyle) { // TODO necessary ? remove?
   //   this.setState({ consoleStyle: style });
   // }
 
@@ -241,7 +241,7 @@ class ConsolePanel extends Component<ConsolePanelProps, ConsolePanelState> {
   private onInputKeyDown(
     event: JSX.TargetedKeyboardEvent<HTMLInputElement>,
   ): void {
-    assert(this.inputRef);
+    assert.ok(this.inputRef);
     // see note here about the use of preventDefault in onKeydown
     // vs onKeyChange with a react input element
     // stackoverflow.com/q/57807522
@@ -365,7 +365,7 @@ class ConsolePanel extends Component<ConsolePanelProps, ConsolePanelState> {
     const { prompt } = this.props;
     const input = inputEl.value;
     const line = this.props.prompt + input.slice(prompt.length);
-    assert(
+    assert.ok(
       this.histSearchIdx >= 0 && this.histSearchIdx < this.histLines.length,
     );
     this.histLines[this.histSearchIdx] = line;
@@ -395,10 +395,10 @@ class ConsolePanel extends Component<ConsolePanelProps, ConsolePanelState> {
 
   private historySearch(direction: number): void {
     // console.log('historySearch: ', direction, this.histSearchIdx, this.histLines);
-    assert(direction === 1 || direction === -1);
+    assert.ok(direction === 1 || direction === -1);
     const numLines = this.histLines.length;
     if (numLines) {
-      assert(this.histSearchIdx >= 0 && this.histSearchIdx < numLines);
+      assert.ok(this.histSearchIdx >= 0 && this.histSearchIdx < numLines);
       this.histSearchIdx =
         (this.histSearchIdx + direction + numLines) % numLines;
       this.inputRef.value = this.histLines[this.histSearchIdx]!;
