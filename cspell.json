@@ -24,7 +24,11 @@
     "reinit",
     "FULLWIN",
     "removefrom",
-    "Webgpu"
+    "Webgpu",
+    "recalc",
+    "Deque",
+    "tpos",
+    "stackoverflow"
   ],
   "flagWords": [],
   "ignorePaths": [
