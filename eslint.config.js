@@ -94,6 +94,7 @@ export default [
       'sonarjs/no-unused-vars': 'off',
       'sonarjs/unused-import': 'warn',
       'sonarjs/todo-tag': 'off',
+      'sonarjs/no-commented-code': 'off',
       'unicorn/prevent-abbreviations': 'off',
       'unicorn/better-regex': 'warn',
       'unicorn/consistent-function-scoping': 'off',
